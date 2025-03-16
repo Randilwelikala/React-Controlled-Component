@@ -6,13 +6,13 @@ function App() {
   const [gender,setGender] = useState('');
   const pronunList ={
     'Mr':'Male',
-    'Ms':'Feamle',
+    'Ms':'Female',
     'Miss':'Female'
   };
 
   const handlePronounChange = (event)=>{
     const selectedPronoun = event.target.value;
-    setGender(selectedPronoun);
+    setGender(pronunList[selectedPronoun] || '');
   }
   return (
     <div className="App">
@@ -32,12 +32,12 @@ function App() {
         
         <div>
           <lable>Male</lable>
-          <input value='Male' type='radio' name='gender'></input>
+          <input value='Male' type='radio' name='gender'checked={gender ==='Male'}></input>
         </div>
 
         <div>
           <lable>Female</lable>
-          <input value='Female' type='radio' name='gender'></input>
+          <input value='Female' type='radio' name='gender' checked ={gender ==='Female'}></input>
         </div>
         <p>{gender}</p>
 
